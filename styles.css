@@ -13,7 +13,6 @@
     
 }
 
-
 h1{
     font-size: 50px;
     display: flex;
@@ -29,6 +28,18 @@ h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #000000;
 
+}
+#playX{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+}
+#playO{
+    display: flex;
+    justify-content: center;
+    color: rgb(170, 50, 50);
+    font-size: 25px;
 }
 
 .startGame{ 
