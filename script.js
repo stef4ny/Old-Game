@@ -1,93 +1,77 @@
+const playX = "X";
+const playO = "O";
 
+const cells = document.querySelectorAll("main > div > div");
+const statusText = document.querySelector("#statusText");
+const botao = document.querySelector("#btn");
+const tabuleiro = document.querySelector("#tabuleiro");
 
-const playX = 'X' // jogador 1
-const playO = 'O'// jogador 2
+const rowcolumn = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
 
+let jogadorAtual = playX;
+let end = false;
 
-const cells = document.querySelectorAll('[data-cell]');
-const statusText = document.getElementById('statusText');
-const reiniciarButton = document.getElementById('reiniciarButton');
-let jogadorAtual = playX;// jogador atual
-let jogadorAtivo = true;// jogo em andamento e interrope mais jogadas se ouver cell livre
+botao.addEventListener("click", iniciar);
 
-const cell = document.getElementById("cell");
-//cell.style.background = "#E6E6FA";
-
-iniciar();
-
-reiniciarButton.addEventListener('click', iniciar);
-
-function iniciar() { //função para iniciar e reiniciar o jogo.
-    jogadorAtivo = true;
-    jogadorAtual = playX;
-    statusText.innerText = '';
-    cells.forEach(cell => {
-        cell.classList.remove(playX);
-        cell.classList.remove(playO);
-        cell.removeEventListener('click', Marcar);
-        cell.addEventListener('click', Marcar, { once: true });
-    });
-}
-function marcador(cell, classAtual) { // marcador do jogador
-    cell.classList.add(classAtual);
-}
-function fimPartida(empate) { // informa o ganhador ou o empate
-    if (empate) {
-        statusText.innerText = 'Empate!';
-    } else {
-        statusText.innerText = `${jogadorAtual === playX ? "X é o vencedor" : "O é o vencedor"}`; // mensagem exibida
-    }
-    jogadorAtivo = false; // interroper mais jogadas
+function iniciar() {
+  tabuleiro.style.display = "grid";
+  botao.textContent = "Reiniciar";
+  statusText.innerText = "";
+  end = false;
+  cells.forEach((cell) => {
+    cell.classList.remove(playX);
+    cell.classList.remove(playO);
+    cell.textContent = "";
+    cell.removeEventListener("click", Marcar);
+    cell.addEventListener("click", Marcar, { once: true });
+  });
 }
 
-function empate() { // verificar se todas as células foram preenchidas(empate)
-    return [...cells].every(cell => {
-        return cell.classList.contains(playX) || cell.classList.contains(playO);
-    });
+function fimPartida(empate) {
+  if (empate) {
+    statusText.innerText = "Empate!";
+  } else {
+    statusText.innerText = `${
+      jogadorAtual === playX ? "X é o vencedor" : "O é o vencedor"
+    }`;
+    end = true;
+  }
 }
 
-function verificar(classAtual) { //verifica se tem um vencedor
-    return rowcolumn.some(combo => {
-        return combo.every(index => {
-            return cells[index].classList.contains(classAtual);
-        });
-    });
-}
-
-function trocar() { // alterar os marcadores
-    jogadorAtual = jogadorAtual === playX ? playO : playX;
+function empate() {
+  return [...cells].every((cell) => {
+    return cell.classList.contains(playX) || cell.classList.contains(playO);
+  });
 }
 
 function Marcar(event) {
+  if (!end) {
     const cell = event.target;
-    const classAtual = jogadorAtual === playX ? playX : playO;
-    marcador(cell, classAtual);
-    cell.innerText = classAtual; // adicionar os símbolos 
-    cell.classList.add(classAtual);//
-    if (verificar(classAtual)) {
-        fimPartida(false);
-    } else if (empate()) {
-        fimPartida(true);
-    } else {
-        trocar();
-    }
+    cell.innerText = jogadorAtual;
+    cell.classList.add(jogadorAtual);
+  }
+  if (verificar(jogadorAtual)) {
+    fimPartida(false);
+  } else if (empate()) {
+    fimPartida(true);
+  } else {
+    jogadorAtual = jogadorAtual === playX ? playO : playX;
+  }
 }
-// função para colocar um dos marcadores nas células
 
-const rowcolumn = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
-function verificar(classAtual) { //verifica se tem um vencedor
-    return rowcolumn.some(combo => {
-        return combo.every(index => {
-            return cells[index].classList.contains(classAtual);
-        });
+function verificar(jogador) {
+  return rowcolumn.some((combo) => {
+    return combo.every((index) => {
+      return cells[index].classList.contains(jogador);
     });
+  });
 }

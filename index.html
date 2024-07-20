@@ -1,57 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Old Game</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-    <header class="HomePage">
-    <header class="mainPage">
-        <h1>Old Game</h1>
-
-        <section class="HomePage">
-            <img src="../imagem/letra-o.png" alt="">
-            <img src="../imagem/marca.png" alt="" >
-            <img src="../imagem/letra-o.png" alt="" >
-            <img src="../imagem/marca.png" alt="" >
-            <img src="../imagem/letra-o.png" alt="">
-            <img src="../imagem/marca.png" alt="">
-
-        </section>
-
-        <button class="startGame">
-            <a href="#conteudo"></a>Start Game
-        </button>
-
-    </header>
+  <body>
     <header>
-            <div class="separate">Good Game</div>
+      <h1>Old Game</h1>
     </header>
 
-    <section id="conteudo">
-        <div class="tabuleiro">
-            <div class="cell" data-cell></div> <!-- células -->
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-           
-
-            <button id="reiniciarButton">Restart</button>
-            <p id="statusText"></p>
-        </div>
-    </section>
-    </header>
-    <!--<button id="startGame" onclick="startGame()">Começar Jogo</button>-->
-
-   <script src="script.js"></script>
-</body>
+    <main>
+      <div id="tabuleiro">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <button id="btn">Start Game</button>
+      <p id="statusText"></p>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

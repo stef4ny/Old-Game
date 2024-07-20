@@ -1,127 +1,100 @@
-.mainPage{
-    margin: 0;
-    padding: 0;
-    font-family:Georgia, Times, 'Times New Roman';
-    background: linear-gradient(rgb(7, 7, 7) 16.61%, #54FF9F 85.62%);
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex-wrap: wrap;
-    
-    
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #54ff9f;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  height: 100%;
+  width: 100%;
 }
 
-h1{
-    font-size: 50px;
-    display: flex;
-    color: #54FF9F;
-}
-.separate{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(#54FF9F 16.61%, #000000 85.62%);
-    font-size: 18px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #000000;
-
-}
-/*#playX{
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 25px;
-}
-#playO{
-    display: flex;
-    justify-content: center;
-    color: rgb(170, 50, 50);
-    font-size: 25px;
-}*/
-.startGame{ 
-    display: flex;
-    position:absolute;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #54FF9F;
-    width: 120px;
-    height: 100px;
-    background-color:#000000;
-    animation: deslizar 2s ease-in-out;
-    
+header {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
 }
 
-#conteudo {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: linear-gradient( #000000 16.62%, #54FF9F 85.61%);
-    position: relative;
+h1 {
+  font-size: 50px;
 }
 
+button {
+  font-size: 1.2em;
+  color: #54ff9f;
+  background-color: #000000;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+}
 
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-
-.tabuleiro {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    /* 3 colunas de 100px*/
-    gap: 10px;
-    margin: 20px auto;
-    align-items: center;
+#tabuleiro {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  display: none;
+  margin-bottom: 1rem;
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
-    background: #0f0f0f;
-    font-size: 2em;
-    cursor: pointer;
+  width: 100px;
+  height: 100px;
+  background: #0f0f0f;
+  font-size: 2em;
+  cursor: pointer;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #0f0f0f;
 }
 
 .cell:hover {
-    background: #54FF9F;
-
+  background: #54ff9f;
+  color: #0f0f0f;
+  transition: 0.25s;
 }
-p{
-    font-size: 25px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #000000;
+
+p {
+  font-size: 25px;
 }
 
 #reiniciarButton {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    background-color: #000000;
-    color: #54FF9F;
-    cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #54ff9f;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
 }
 
 @media screen and (min-width: 1024px) {
-    .HomePage {
-      width: 100%;
-    }
-  
+  .HomePage {
+    width: 100%;
   }
-  @media screen and (min-width: 767px) and (max-width:909px){
-    .HomePage {
-      width: 80vh;
-    }
-  
+}
+@media screen and (min-width: 767px) and (max-width: 909px) {
+  .HomePage {
+    width: 80vh;
   }
-
- /* @media print {
-    .HomePage{
-        display: none;
-    }
-  }*/
+}
