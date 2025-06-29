@@ -30,7 +30,7 @@ CSS3
 
 # Como executar
 
-https://stef4ny.github.io/Old-Game/
+https://stef4ny.github.io/Xis-OrBola/
 
 
  
