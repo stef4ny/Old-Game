@@ -5,7 +5,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: #54ff9f;
+  background: #b00af7;
   font-family: Georgia, "Times New Roman", Times, serif;
   height: 100%;
   width: 100%;
@@ -26,7 +26,7 @@ h1 {
 
 button {
   font-size: 1.2em;
-  color: #54ff9f;
+  color: #bb6aeb;
   background-color: #000000;
   cursor: pointer;
   border: none;
@@ -65,7 +65,7 @@ main {
 }
 
 .cell:hover {
-  background: #54ff9f;
+  background: #5f379d;
   color: #0f0f0f;
   transition: 0.25s;
 }
@@ -81,7 +81,7 @@ p {
   justify-content: center;
   align-items: center;
   background-color: #000000;
-  color: #54ff9f;
+  color: #732997;
   cursor: pointer;
   border: none;
   border-radius: 0.5rem;
